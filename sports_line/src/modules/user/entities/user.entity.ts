@@ -1,16 +1,25 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { UserRole } from '../enum/user-role.enum';
+import { BaseEntity } from 'src/shared/base.entity';
 
 @Entity({ name: 'users' })
-export class User {
+export class User extends BaseEntity {
     id_user: number;
     @PrimaryGeneratedColumn()
 
-    @Column({ length: 100 })
-    fullName: string;
+    @Column({ type: 'varchar', length: 100 })
+    full_name: string;
 
-    @Column({ unique: true })
-    email: string;
-
-    @Column()
+    @Column({ type: 'varchar', length: 255 })
     password: string;
+
+    @Column({ 
+        type: 'enum', 
+        enum: UserRole, 
+        default: UserRole.REGULAR 
+    })
+    role: UserRole;
+
+    @Column({ type: 'varchar', unique: true })
+    email: string;
 }
