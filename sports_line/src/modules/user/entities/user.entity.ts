@@ -1,11 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { UserRole } from '../enum/user-role.enum';
-import { BaseEntity } from 'src/shared/base.entity';
+import { BaseEntity } from '../../../shared/base.entity';
 
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
-    id_user: number;
     @PrimaryGeneratedColumn()
+    id_user: number;
 
     @Column({ type: 'varchar', length: 100 })
     full_name: string;
