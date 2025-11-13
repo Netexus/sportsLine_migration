@@ -8,14 +8,16 @@ import { runSeeders } from './seed'; // <- Importamos
 async function executeSeeds() {
     try {
         await AppDataSource.initialize();
-        console.log('📡 Conexión con la base de datos establecida');
+        console.log('📡 Connection to the database established.');
         await runSeeders(AppDataSource);
     } catch (error) {
-        console.error('❌ Error ejecutando semillas:', error);
+        console.error('❌ Error executing seeds:', error);
     } finally {
         await AppDataSource.destroy();
-        console.log('🔌 Conexión cerrada');
+        console.log('🔌 Closed connection.');
     }
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 executeSeeds();
