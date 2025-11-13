@@ -1,31 +1,28 @@
 import { DataSource } from 'typeorm'; // <- Importamos
 import { UserRole } from '../../modules/user/enum/user-role.enum';
-import { hashPassword } from '../../shared/bcrypt.config';  // Importa la función hashPassword. / 
 
-import { User } from '../../modules/user/entities/user.entity'; // <- Importamos nuestra entidad "User". /
+import { Users } from '../../modules/user/entities/user.entity'; // <- Importamos nuestra entidad "User". /
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 export async function runSeeders(dataSource: DataSource): Promise<void> {
     console.log('🌱 Starting the seed process...');
 
-    const userRepository = dataSource.getRepository(User);
+    const userRepository = dataSource.getRepository(Users);
 
     const count = await userRepository.count();
     if (count === 0) {
-        const adminPassword = await hashPassword('admin123');  // Hashear la contraseña del admin. /
-        const userPassword = await hashPassword('user123');    // Hashear la contraseña del usuario regular. /
 
         await userRepository.save([
         {
-          full_name: 'Admin User',
-          password: adminPassword,
-          role: UserRole.ADMIN,
-          email: 'admin@example.com',
+            full_name: 'Admin User',
+            password: 'admin123',
+            role: UserRole.ADMIN,
+            email: 'admin@example.com',
         },
         {
             full_name: 'Regular User',
-            password: userPassword,
+            password: 'regular123',
             role: UserRole.REGULAR,
             email: 'user@example.com',
         },
