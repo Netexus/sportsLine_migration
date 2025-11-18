@@ -4,7 +4,7 @@ import { UserRole } from '../enum/user-role.enum';
 import { BaseEntity } from '../../../shared/base.entity';
 
 @Entity({ name: 'users' })
-export class Users extends BaseEntity {
+export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id_user: number;
 
