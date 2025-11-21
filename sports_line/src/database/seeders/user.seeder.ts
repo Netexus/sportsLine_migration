@@ -1,8 +1,10 @@
 import { DataSource } from 'typeorm';
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Entidad. / Entity
 import { User } from '../../modules/user/entities/user.entity';
+
+// Enum.
 import { UserRole } from '../../modules/user/enum/user-role.enum';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -12,7 +14,7 @@ export async function userSeeder(dataSource: DataSource): Promise<void> {
 
     const userRepository = dataSource.getRepository(User);
 
-    const count = await userRepository.count(); // <- Verificamos si ya existen usuarios en la base de datos. 
+    const count = await userRepository.count(); // <- Verificamos si ya existen usuarios. 
 
     if (count === 0) {
 
