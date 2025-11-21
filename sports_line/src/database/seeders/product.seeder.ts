@@ -2,7 +2,7 @@ import { DataSource } from "typeorm";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-import { Product } from "src/modules/product/entities/product.entity";
+import { Product } from "../../modules/product/entities/product.entity";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

@@ -1,5 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { BaseEntity } from 'src/shared/base.entity';
+
+// - - - - - - - - - - - - - - - - - - -
+// Entidad base. / Base entity.
+import { BaseEntity } from '../../../shared/base.entity';
+
+// - - - - - - - - - - - - - - - - - - -
 
 @Entity('products')
 export class Product extends BaseEntity {

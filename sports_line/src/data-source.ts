@@ -6,7 +6,11 @@ dotenv.config({ path: 'sports_line/.env.development' });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 // Entidades. / Entities.
-import { Users } from './modules/user/entities/user.entity';
+import { User } from './modules/user/entities/user.entity';
+import { Client } from './modules/client/entities/client.entity';
+import { Product } from './modules/product/entities/product.entity';
+import { Order } from './modules/order/entities/order.entity';
+import { OrderItem } from './modules/order-item/entities/order-item.entity';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -19,6 +23,6 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_DATABASE || 'riwi_sportsline',
     synchronize: false,
     logging: true,
-    entities: [Users],
+    entities: [User, Client, Product, Order, OrderItem],
     migrations: ['src/migrations/*.ts'],
 });

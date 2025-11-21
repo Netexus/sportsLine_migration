@@ -5,11 +5,11 @@ import { AppDataSource } from './data-source';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 // Modulos. / Modules.
-
 import { UserModule } from './modules/user/user.module';
 import { ProductModule } from './modules/product/product.module';
 import { ClientModule } from './modules/client/client.module';
 import { OrderModule } from './modules/order/order.module';
+import { OrderItemModule } from './modules/order-item/order-item.module';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -22,11 +22,15 @@ import { OrderModule } from './modules/order/order.module';
     TypeOrmModule.forRootAsync({
       useFactory: async () => {
         const options = AppDataSource.options; // Obtenemos las opciones directamente de AppDataSource.
-        return options; // Devolvemos las opciones de configuración.
+        return options;
       },
     }),
 
     UserModule,
+    ProductModule,
+    ClientModule,
+    OrderModule,
+    OrderItemModule,
   ],
   controllers: [],
   providers: [],

@@ -1,4 +1,3 @@
-import 'dotenv/config'; // <- Importamos las variables del .env automáticamente. /
 import { AppDataSource } from '../../data-source';
 
 import { runSeeders } from './main.seeder'; // <- Importamos 

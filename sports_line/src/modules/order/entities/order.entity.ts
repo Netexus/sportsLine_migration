@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { BaseEntity } from 'src/shared/base.entity';
+import { BaseEntity } from '../../../shared/base.entity';
 import { OrderStatus } from '../enum/order-status.enum';
-import { Client } from 'src/modules/client/entities/client.entity';
+import { Client } from '../../client/entities/client.entity';
 
 @Entity('orders')
 export class Order extends BaseEntity {

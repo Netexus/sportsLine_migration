@@ -1,7 +1,8 @@
 import { DataSource } from 'typeorm';
 
+// - - - - - - - - - - - - - - - - - - -
 // Entidades. / Entities.
-import { OrderItem } from '../../modules/orderItem/entities/orderItem.entity';
+import { OrderItem } from '../../modules/order-item/entities/order-item.entity';
 import { Order } from '../../modules/order/entities/order.entity';
 import { Product } from '../../modules/product/entities/product.entity';
 

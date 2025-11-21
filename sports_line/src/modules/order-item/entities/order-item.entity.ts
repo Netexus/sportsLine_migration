@@ -1,7 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { BaseEntity } from 'src/shared/base.entity';
-import { Order } from 'src/modules/order/entities/order.entity';
-import { Product } from 'src/modules/product/entities/product.entity';
+
+// - - - - - - - - - - - - - - - - - - -
+// Entidades. / Entities.
+import { BaseEntity } from '../../../shared/base.entity';
+import { Order } from '../../order/entities/order.entity';
+import { Product } from '../../product/entities/product.entity';
+
+// - - - - - - - - - - - - - - - - - - -
 
 @Entity('order_items')
 export class OrderItem extends BaseEntity {
