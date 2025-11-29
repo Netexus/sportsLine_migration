@@ -23,6 +23,6 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME || 'riwi_sportsline',
     synchronize: false,
     logging: true,
-    entities: [User, Client, Product, Order, OrderItem],
-    migrations: ['src/database/migrations/*.ts'],
+    entities: [__dirname + '/modules/**/*.entity.{ts,js}'],
+    migrations: [__dirname + '/migrations/*.{ts,js}'],
 });
