@@ -13,7 +13,7 @@ This is the backend of the Riwi Sportsline application, developed with **NestJS*
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/EsstebanG/nestjs-SportsLine-us
+    git clone https://github.com/Netexus/sportsLine_migration
     ```
 
 2. Install dependencies:
@@ -25,11 +25,13 @@ This is the backend of the Riwi Sportsline application, developed with **NestJS*
 3. Configure the environment variables according to your data in the `.env` file located in the project root directory.:
 
     ```env
+    PORT=your_port # <-- For example '3000'
+
     DB_HOST=localhost
-    DB_PORT=5432
-    DB_USERNAME=myuser
-    DB_PASSWORD=mypassword
-    DB_DATABASE=riwi_sportsline
+    DB_PORT=5432 # <-- This port is for PostgreSQL.
+    DB_USER=your_username
+    DB_PASSWORD=your_password
+    DB_NAME=database_name
     ```
 
 4. Run the project:
