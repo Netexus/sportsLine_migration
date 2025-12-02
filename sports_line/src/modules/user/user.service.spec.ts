@@ -1,11 +1,20 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserService } from './user.service';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';  // Tu entidad User
-import { Repository } from 'typeorm';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 
-// Mock del UserRepository
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Servicio. / Service.
+import { UserService } from './user.service';
+
+// Entidad. / Entity.
+import { User } from './entities/user.entity';
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Mock del UserRepository.
 const mockUserRepository = {
     findOne: jest.fn(),
     save: jest.fn(),
