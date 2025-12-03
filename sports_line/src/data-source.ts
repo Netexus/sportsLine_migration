@@ -5,14 +5,6 @@ import * as dotenv from 'dotenv';
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-// Entidades. / Entities.
-import { User } from './modules/user/entities/user.entity';
-import { Client } from './modules/client/entities/client.entity';
-import { Product } from './modules/product/entities/product.entity';
-import { Order } from './modules/order/entities/order.entity';
-import { OrderItem } from './modules/order-item/entities/order-item.entity';
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 export const AppDataSource = new DataSource({
     type: 'postgres',

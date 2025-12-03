@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 
@@ -9,12 +9,18 @@ import { envValidationSchema } from './config/config.validation';
 import { AppDataSource } from './data-source';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 // Modulos. / Modules.
 import { UserModule } from './modules/user/user.module';
 import { ProductModule } from './modules/product/product.module';
 import { ClientModule } from './modules/client/client.module';
 import { OrderModule } from './modules/order/order.module';
 import { OrderItemModule } from './modules/order-item/order-item.module';
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// Middlewares.
+import { LoggingMiddleware } from './middlewares/loggin.middleware';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -44,4 +50,8 @@ import { OrderItemModule } from './modules/order-item/order-item.module';
   providers: [],
 })
 
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggingMiddleware).forRoutes('*');
+  }
+}
