@@ -21,6 +21,7 @@ import { OrderItemModule } from './modules/order-item/order-item.module';
 
 // Middlewares.
 import { LoggingMiddleware } from './middlewares/loggin.middleware';
+import { AuthModule } from './modules/auth/auth.module';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -35,7 +36,7 @@ import { LoggingMiddleware } from './middlewares/loggin.middleware';
     
     TypeOrmModule.forRootAsync({
       useFactory: async () => {
-        const options = AppDataSource.options; // Obtenemos las opciones directamente de AppDataSource.
+        const options = AppDataSource.options;
         return options;
       },
     }),
@@ -45,6 +46,7 @@ import { LoggingMiddleware } from './middlewares/loggin.middleware';
     ClientModule,
     OrderModule,
     OrderItemModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
